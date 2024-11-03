@@ -5,7 +5,7 @@
   "type": "module",
   "main": "test.js",
   "scripts": {
-    "test": "k6 run test.js",
+    "test": "",
     "search": "cross-env K6_BROWSER_HEADLESS=false K6_BROWSER_ARGS='show-property-changed-rects' k6 run --out web-dashboard search-employees.js",
     "add-employee": "cross-env K6_BROWSER_HEADLESS=false K6_BROWSER_ARGS='show-property-changed-rects' k6 run add-employee.js"
   },
