@@ -1,7 +1,7 @@
 // constants 
 export const WEBSITE_URL = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
 
-// functions
+
 export async function login(page) {
   console.log('Logging in...');
   await page.waitForSelector('[name="username"]');
@@ -13,4 +13,10 @@ export async function login(page) {
 
 export function delay(milliseconds = 1000) {
   return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+export function buildQueryString(params) {
+  return Object.keys(params)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    .join('&');
 }

@@ -1,5 +1,6 @@
 import { browser } from 'k6/browser'; 
 import {WEBSITE_URL, login, delay} from './helpers.js';
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
 export const options = {
   scenarios: {
@@ -41,10 +42,7 @@ export default async function start() {
     await delay(1000);
     await searchEmployee(page, 'charles');
 
-    // Wait for 5 seconds
-    await delay(50000);
-
-
+    handleSummary(data);
 
   } catch (error) {
     console.error(`Failed to open page: ${error}`);
@@ -65,4 +63,10 @@ async function searchEmployee(page, employeeName) {
   const searchButtonSelector = 'button[type="submit"]';
   await page.waitForSelector(searchButtonSelector);
   await page.click(searchButtonSelector);
+}
+
+export function handleSummary(data) {
+  return {
+    "summary.html": htmlReport(data),
+  };
 }

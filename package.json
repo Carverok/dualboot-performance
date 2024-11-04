@@ -1,17 +1,16 @@
 {
-  "name": "stress-testing",
+  "name": "dualboot-performance",
   "version": "1.0.0",
-  "description": "",
-  "type": "module",
-  "main": "test.js",
+  "description": "Performance testing suite for the OrangeHRM Demo Application",
+  "type" : "module",
   "scripts": {
-    "test": "",
-    "search": "cross-env K6_BROWSER_HEADLESS=false K6_BROWSER_ARGS='show-property-changed-rects' k6 run --out web-dashboard search-employees.js",
+    "search": "cross-env K6_BROWSER_HEADLESS=false K6_BROWSER_ARGS='show-property-changed-rects' k6 run search-employees.js",
+    "search-api": "cross-env K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_EXPORT=html-report.html k6 run search-employee-api.js",
     "add-employee": "cross-env K6_BROWSER_HEADLESS=false K6_BROWSER_ARGS='show-property-changed-rects' k6 run add-employee.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Nayib Ayus <nayib.ayus@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "cross-env": "^7.0.3"
   }

@@ -11,6 +11,10 @@ This repository contains a performance testing suite for the OrangeHRM Demo Appl
 
 We recommend using [Visual Studio Code](https://code.visualstudio.com/) to work with this project. Visual Studio Code provides excellent support for JavaScript and TypeScript development, including extensions that enhance the Playwright testing experience.
 
+> **⚠ Important Note:**  
+> To work with this project, you must have the [K6](https://grafana.com/docs/k6/latest/set-up/install-k6/) tool installed on your system. Please follow the official [installation guide](https://grafana.com/docs/k6/latest/set-up/install-k6/) to set it up before proceeding.
+
+
 ## Requirements
 - **Node.js**
 - **K6 CLI**: [Installation Guide](https://grafana.com/docs/k6/latest/set-up/install-k6/)
@@ -32,13 +36,23 @@ Open Visual Studio Code, and use the command palette (`Ctrl+Shift+P` or `Cmd+Shi
 npm install
 ```
 
-### Running scenarios
+### Running performance test
 ```sh
-# To search employee scenario run:
+# To run employee performance test run:
+npm run search-api
+```
+
+### Running app test
+
+```sh
+# To search employee with k6 browser scenario run:
 npm run search
 ```
 
 ```sh
-# To add employee scenario run:
+# To add employee with k6 browser scenario run:
 npm run add-employee
 ```
+
+### Dinamic reports
+After running the `npm run search-api` command an html file called `html-report.html` should be generated. You can open this file which will print a dashboard with an overview of all metrics executions. 
