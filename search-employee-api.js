@@ -3,7 +3,13 @@ import { check } from 'k6';
 import { buildQueryString } from './helpers.js'
 
 const API_URL = 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees';
-const COOKIE = 'orangehrm=n0mor0e22h6b2num8egvpjkebo';
+
+//TODO: Paste here the cookie value you copied from the browser
+const COOKIE_VALUE = "";
+const COOKIE_KEY = "orangehrm";
+const COOKIE = `${COOKIE_KEY}=${COOKIE_VALUE}`;
+
+//TODO: filters for the API. You can change these values
 const filters = {
   limit: 50,
   offset: 0,

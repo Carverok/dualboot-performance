@@ -14,7 +14,6 @@ We recommend using [Visual Studio Code](https://code.visualstudio.com/) to work 
 > **⚠ Important Note:**  
 > To work with this project, you must have the [K6](https://grafana.com/docs/k6/latest/set-up/install-k6/) tool installed on your system. Please follow the official [installation guide](https://grafana.com/docs/k6/latest/set-up/install-k6/) to set it up before proceeding.
 
-
 ## Requirements
 - **Node.js**
 - **K6 CLI**: [Installation Guide](https://grafana.com/docs/k6/latest/set-up/install-k6/)
@@ -29,18 +28,37 @@ We recommend using [Visual Studio Code](https://code.visualstudio.com/) to work 
 **Clone the Project**  
 Open Visual Studio Code, and use the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) to select **Git: Clone**. Enter the repository URL to clone this project to your local machine.
 
-### Testing execution
+## Testing execution
 ### Node JS and K6
 ```sh
 # To install project dependencies run:
 npm install
 ```
 
-### Running performance test
-```sh
-# To run employee performance test run:
-npm run search-api
-```
+# Running performance test
+1. **Log In**: Go to [OrangeHRM Demo Site](https://opensource-demo.orangehrmlive.com/web/index.php/auth/login) and log in with your credentials.
+
+2. **Open Developer Tools**:
+   - Press `F12` (or right-click the page and select **Inspect**) to open Developer Tools.
+
+3. **Navigate to the Application Tab**:
+   - In the Developer Tools menu, click on the **Application** tab.
+
+4. **Locate the Cookie**:
+   - Under **Storage**, expand the **Cookies** section.
+   - Select the site URL to view the cookies stored for the site.
+
+5. **Copy the Cookie Value**:
+   - Find the `orangehrm` cookie in the list.
+   - Right-click on the **Value** field, select **Copy**, and save this value for future use.
+
+6. **Paste cookie value**
+    - Open the `search-employee-api.js` file and paste the value in the `COOKIE_VALUE` constant.
+
+7. **Run the command**
+    ```sh
+    npm run search-api
+    ```
 
 ### Running app test
 
