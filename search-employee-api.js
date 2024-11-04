@@ -1,6 +1,6 @@
 import http from 'k6/http';
 import { check } from 'k6';
-import { buildQueryString } from './helpers'
+import { buildQueryString } from './helpers.js'
 
 const API_URL = 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees';
 const COOKIE = 'orangehrm=n0mor0e22h6b2num8egvpjkebo';
